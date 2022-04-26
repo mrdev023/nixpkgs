@@ -15089,6 +15089,8 @@ with pkgs;
 
   ue4demos = recurseIntoAttrs (callPackage ../games/ue4demos { });
 
+  ue5 = callPackage ../games/ue5 { };
+
   # To ensure vdrift's code is built on hydra
   vdrift-bin = vdrift.bin;
 
