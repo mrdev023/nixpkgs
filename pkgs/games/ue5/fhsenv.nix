@@ -1,6 +1,6 @@
-{ callPackage, ... }:
+{ buildFHSEnvBubblewrap, ... }:
 
-(callPackage ./fhs {} {
+buildFHSEnvBubblewrap {
   name = "build-ue5";
 
   targetPkgs = pkgs: with pkgs; [
@@ -9,13 +9,11 @@
     pkg-config
     mono
     git
-    python2
+    python3Full
     vulkan-tools
     openssl
     xdg-user-dirs
   ];
-
-  osReleaseFile = ./os-release;
 
   runScript = "
     cat /etc/os-release
@@ -23,4 +21,4 @@
     ./GenerateProjectFiles.sh
     make
   ";
-})
+}
